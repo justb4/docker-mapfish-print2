@@ -1,4 +1,4 @@
-# docker-mfprint2
+# docker-mapfish-print2
 
 Docker image and tools for MapFish Print **VERSION 2** legacy.
 This version is still used in quite some contexts. Find the [MapFish Print v2 docs here](http://www.mapfish.org/doc/print/).
