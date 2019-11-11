@@ -3,6 +3,9 @@
 Docker image and tools for MapFish Print **VERSION 2** legacy.
 This version is still used in quite some contexts. Find the [MapFish Print v2 docs here](http://www.mapfish.org/doc/print/).
 
+See my repo [docker-mapfish-print](https://github.com/justb4/docker-mapfish-print) for 
+a *version 3+* Docker Image.
+
 ## Building
 
 With the script [build.sh](build.sh) the Docker image can be build
