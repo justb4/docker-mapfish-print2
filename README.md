@@ -31,7 +31,6 @@ See the [examples directory](examples) for how to run with your own config.
 
 ## Credits
 
-Kartoza team: https://github.com/kartoza for providing good examples of Dockerfiles for FOSS geospatial Java .war's.
-
-TT Fonts addition: https://github.com/panosoft/docker-prince-server/blob/master/Dockerfile
-
+* Kartoza team: https://github.com/kartoza for providing good examples of Dockerfiles for FOSS geospatial Java .war's.
+* TT Fonts addition: https://github.com/panosoft/docker-prince-server/blob/master/Dockerfile
+* [CampToCamp](https://www.camptocamp.com/) for developing MapFish Print and many other useful FOSS Geospatial software
