@@ -1,0 +1,110 @@
+<html>
+  <head>
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+      <script type="text/javascript">
+          function post() {
+          var data = $('#spec').serialize(true);
+          $.ajax({
+              type: 'POST',
+              url: '/pdf28992/create.json',
+              data: data,
+              success: function (data) {
+                var result = jQuery.parseJSON(data)
+                location.href = result.getURL;
+              },
+              dataType: 'application/json'
+            });
+
+          }
+      </script>
+  </head>
+  <body>
+    <h1>Test config.default.yaml</h1>
+
+    <form id="spec" action="/pdf28992/print.pdf">
+      <textarea name="spec" cols="80" rows="30">
+          {
+            "units": "m",
+            "srs": "EPSG:28992",
+            "layout": "A4 Portrait",
+            "dpi": 127,
+            "outputFormat": "pdf",
+            "mapTitle": "My Title",
+            "comment": "My Comment",
+            "mapFooter": "",
+            "mapAttribution": "Dutch Kadaster - PDOK",
+            "layers": [
+              {
+                "baseURL": "http://geodata.nationaalgeoregister.nl/tiles/service/tms/",
+                "opacity": 1,
+                "type": "TMS",
+                "layer": "brtachtergrondkaart",
+                "maxExtent": [
+                  -285401.92,
+                  22598.08,
+                  595401.92,
+                  903401.92
+                ],
+                "tileOrigin": {
+                  "x": -285401.92,
+                  "y": 22598.08
+                },
+                "tileSize": [
+                  256,
+                  256
+                ],
+                "resolutions": [
+                  3440.64,
+                  1720.32,
+                  860.16,
+                  430.08,
+                  215.04,
+                  107.52,
+                  53.76,
+                  26.88,
+                  13.44,
+                  6.72,
+                  3.36,
+                  1.68,
+                  0.84,
+                  0.42
+                ],
+                "format": "png"
+              },
+              {
+                "baseURL": "http://geodata.nationaalgeoregister.nl/bag/wms?",
+                "opacity": 1,
+                "singleTile": true,
+                "type": "WMS",
+                "layers": [
+                  "pand"
+                ],
+                "format": "image/png",
+                "styles": [
+                  ""
+                ],
+                "customParams": {
+                  "TRANSPARENT": true
+                }
+              }
+            ],
+            "pages": [
+              {
+                "center": [
+                  181053.44,
+                  455921.32
+                ],
+                "scale": 5000,
+                "rotation": 0
+              }
+            ]
+          }
+      </textarea><br>
+        <button name="Print">Get Print</button>
+        <button name="Post Print" type="button" onclick="javascript:post()">Post Print</button>
+    </form>
+    <p>
+      Print config info: <a href="/pdf28992/info.json">printInfo</a>
+    </p>
+  </body>
+</html>

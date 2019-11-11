@@ -1,0 +1,94 @@
+#===========================================================================
+# allowed DPIs
+#===========================================================================
+dpis:
+  - 254
+  - 190
+  - 127
+  - 56
+
+#===========================================================================
+# allowed Formats
+#===========================================================================
+# '*' means any format
+formats: ['*']
+
+#===========================================================================
+# the allowed scales
+#===========================================================================
+scales:
+  - 10000000
+  - 5000000
+  - 2500000
+  - 1250000
+  - 625000
+  - 300000
+  - 150000
+  - 75000
+  - 40000
+  - 20000
+  - 10000
+  - 6000
+  - 5000
+  - 3000
+  - 2500
+  - 2000
+  - 1000
+  - 500
+  - 250
+
+#===========================================================================
+# the list of allowed hosts
+#===========================================================================
+hosts:
+  - !localMatch
+    dummy: true
+  - !ipMatch
+    ip: www.camptocamp.org
+  - !dnsMatch
+    host: geodata.nationaalgeoregister.nl
+    port: 80
+  - !dnsMatch
+    host: demo.mapfish.org
+    port: 80
+
+# the default fileName for the files downloaded from the servlet
+outputFilename: MapFish_Default_PrintOut
+
+layouts:
+  #===========================================================================
+  A4 Portrait:
+  #===========================================================================
+    # override the default outputFileName defined above
+#    outputFilename: A4_Layout
+    mainPage:
+      rotation: true
+      pageSize: A4
+      header:
+        height: 50
+        items:
+          - !text
+            font: Helvetica
+            fontSize: 30
+            align: right
+            text: '${mapTitle}'
+      items:
+        - !map
+          spacingAfter: 30
+          width: 440
+          height: 483
+        - !text
+          text: '${comment}'
+          spacingAfter: 30
+      footer:
+        height: 30
+        items:
+          - !columns
+            items:
+              - !text
+                backgroundColor: #FF0000
+                align: left
+                text: Copyright Just Objects
+              - !text
+                align: right
+                text: 'Page ${pageNum}'

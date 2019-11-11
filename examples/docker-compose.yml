@@ -1,0 +1,22 @@
+version: "3"
+
+# Example docker-compose file, adapt for your setup
+services:
+
+  print:
+
+    image: justb4/mapfish-print:2.1-SNAPSHOT
+
+    container_name: mfprint2
+
+    # restart: unless-stopped
+
+    ports:
+      - "8081:8080"
+
+    # override config and default index.html (does not work anyway)
+    # also replace default web.xml as to configure servlets for our configs
+    volumes:
+      - ./webapp/config:/usr/local/tomcat/webapps/ROOT/config:ro
+      - ./webapp/index.html:/usr/local/tomcat/webapps/ROOT/index.html:ro
+      - ./webapp/WEB-INF/web.xml:/usr/local/tomcat/webapps/ROOT/WEB-INF/web.xml:ro
