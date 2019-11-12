@@ -3,7 +3,7 @@
 # Run MapFish Print2 Docker image with options
 
 CONTAINER_NAME="mfprint2-d"
-IMAGE="justb4/mapfish-print2:2.1-SNAPSHOT"
+IMAGE="justb4/mapfish-print2:latest"
 
 # Define the mappings for local dirs, ports for container
 VOL_MAP_1="-v ${PWD}/webapp/config:/usr/local/tomcat/webapps/ROOT/config:ro"
