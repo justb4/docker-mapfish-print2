@@ -12,7 +12,7 @@ If you read this on DockerHub, local links will not work, [read full README here
  
 ## Log4J Security fix
 
-Read more [here](config/webapp/WEB-INF/lib/README.md). Bottom line: this project does **not** use LogJ2!
+Read more [here](config/webapp/WEB-INF/lib/README.md). Bottom line: this project does **not** use Log4J2 (but v1)!
 
 ## Building
 
