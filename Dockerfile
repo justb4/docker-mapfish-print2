@@ -41,6 +41,7 @@ ENV \
 	TC_DEPLOY_DIR="$CATALINA_HOME/webapps" \
 	TC_BIN_DIR="$CATALINA_HOME/bin" \
 	MFPRINT_DEPLOY_DIR="$CATALINA_HOME/webapps/ROOT" \
+	LOG4J_JAR="$MFPRINT_DEPLOY_DIR/WEB-INF/lib/log4j-1.2.17.jar" \
 	JAI="jai-1_1_3-lib-linux-amd64.tar.gz" \
 	JAI_IMAGEIO="jai_imageio-1_1-lib-linux-amd64.tar.gz"
 
@@ -87,11 +88,13 @@ RUN \
     && rm /tmp/print.war
 
 # Add default config
+# Includes: Security fix, see http://geoserver.org/announcements/2021/12/13/logj4-rce-statement.html
 ADD config /tmp/config
 
 # Copy configuration for Tomcat
 # Copy webapp config en eigen print-apps
 # https://github.com/Microsoft/vscode-arduino/issues/644
 RUN cp -r /tmp/config/tomcat/* $CATALINA_HOME \
+	&& rm -f $LOG4J_JAR \
 	&& cp -rf /tmp/config/webapp/* $MFPRINT_DEPLOY_DIR \
 	&& cp -rf /tmp/config/etc/* /etc/

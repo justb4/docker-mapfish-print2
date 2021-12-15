@@ -9,6 +9,10 @@ This version is still used in quite some contexts.
 * See my repo [docker-mapfish-print](https://github.com/justb4/docker-mapfish-print) for a MFP **version 3+** Docker Image.
 
 If you read this on DockerHub, local links will not work, [read full README here](https://github.com/justb4/docker-mapfish-print2).
+ 
+## Log4J Security fix
+
+Read more [here](config/webapp/WEB-INF/lib/README.md). Bottom line: this project does **not** use LogJ2!
 
 ## Building
 
